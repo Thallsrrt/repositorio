@@ -1,0 +1,139 @@
+#!/bin/bash
+clear
+NUM=0
+while (( $NUM != 6 )); do
+	clear
+	echo "MENU"
+	echo "1) Exercicio 1"
+	echo "2) Exercicio 2"
+	echo "3) Exercicio 3"
+	echo "4) Exercicio 4"
+	echo "5) Exercicio 5"
+	read NUM
+if (( $NUM == 1 )); then
+clear
+echo "Digite um numero inteiro"
+read MAIOR
+clear
+echo "Digite outro numero inteiro"
+read MENOR
+clear
+ if (( $MAIOR < $MENOR )); then
+          TEMP=$MAIOR
+          MAIOR=$MENOR
+          MENOR=$TEMP
+fi
+if (( $MENOR % 2 == 0 )); then
+          let MENOR=($MENOR+1),,
+fi
+if (( $MAIOR % 2 == 0 )); then
+          let MAIOR=($MAIOR-1)
+fi
+while (( $MENOR != $MAIOR )); do
+          echo -ne "$MENOR, "
+          let MENOR=($MENOR+2)
+done
+echo "$MAIOR"
+echo "Pressione [enter] para sair"
+read TEMP
+fi
+if (( $NUM == 2 )); then
+clear
+N2=0
+echo "Digite quantos numeros voce ira pegar"
+read VAR
+while (( $VAR >= 1 )); do
+        echo "Digita um numero"
+        read N1
+        if (( $N1 > $N2 )); then
+                 N2=$N1
+        fi
+        let VAR=($VAR-1)
+done
+echo "O maior eh $N2"
+read asdf
+fi
+if (( $NUM == 3 )); then
+clear
+
+SALARIO=1
+while (( $SALARIO != 0 )); do
+
+           echo "Informe um salario"
+           read SALARIO
+
+            if (( $SALARIO < 500 )) ; then
+                        let TMP=($SALARIO*20/100)
+                        let SALARIO=($SALARIO+$TMP)
+                        echo "Seu salario atual eh de $SALARIO"
+
+                        
+else
+	
+                        let TMP=($SALARIO*10/100)
+                        let SALARIO=($SALARIO+$TMP)
+                        echo "Seu salario atual eh de $SALARIO"
+                        
+            fi
+done
+fi
+if (( $NUM == 4 )); then
+clear
+QNT=1
+echo "Digite um numero"
+read DIG
+NUM=$DIG
+while (( $DIG != 0 )); do
+	echo "Digite um numero"
+	read DIG
+	if (( $DIG != 0 )); then
+		if (( $DIG <= $NUM )); then
+			if (( $DIG < $NUM )); then
+			NUM=$DIG
+			QNT=1
+		else
+			let QNT=($QNT+1)
+			fi
+		fi
+	fi
+done
+echo "O menor numero eh $NUM e foi digitado $QNT vez(es)"
+sleep 3
+fi
+if (( $NUM == 5 )); then
+SALARIO=1
+SALARIO1=0
+SALARIO2=0
+SALARIO3=0
+clear
+while (( SALARIO != 0 )); do
+	echo "Digite salario:"
+	read SALARIO
+
+	if (( $SALARIO > $SALARIO1 )); then
+		SALARIO3=$SALARIO2
+		SALARIO2=$SALARIO1
+		SALARIO1=$SALARIO
+	else
+           if (( $SALARIO != $SALARIO1 )); then
+		if (( $SALARIO > $SALARIO2  )); then
+			SALARIO3=$SALARIO2
+			SALARIO2=$SALARIO
+		else
+		    if (( $SALARIO != $SALARIO2 )); then 
+			if (( $SALARIO > $SALARIO3  )); then
+				SALARIO3=$SALARIO
+			fi
+		    fi
+		fi
+           fi
+      fi
+done
+echo " Os 3 maiores salarios são:"
+echo " Primeiro Maior Salario: $SALARIO1"
+echo " O Segundo Maior Salario: $SALARIO2"
+echo "O Terceior Maior Salario: $SALARIO3"
+sleep 4
+fi
+done 
+
